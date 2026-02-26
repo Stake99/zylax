@@ -1,0 +1,27 @@
+# Open Graph Images Directory
+
+This directory contains Open Graph images for social media sharing.
+
+## Required Images:
+
+- og-default.jpg (1200x630px) - Default Open Graph image
+- og-home.jpg (1200x630px) - Homepage Open Graph image
+- og-services.jpg (1200x630px) - Services page Open Graph image
+- og-about.jpg (1200x630px) - About page Open Graph image
+- og-contact.jpg (1200x630px) - Contact page Open Graph image
+- og-service-penetration-testing.jpg (1200x630px) - Penetration Testing service
+- og-service-security-audits.jpg (1200x630px) - Security Audits service
+- og-service-incident-response.jpg (1200x630px) - Incident Response service
+- og-service-compliance-consulting.jpg (1200x630px) - Compliance Consulting service
+
+## Image Specifications:
+
+- Dimensions: 1200x630 pixels (recommended for Open Graph)
+- Format: JPG or PNG
+- File size: Under 1MB for optimal loading
+- Content: Should include company branding and relevant imagery
+
+## Note:
+
+These images are referenced in the metadata but need to be created and added to this directory.
+Until then, the metadata will reference these paths, and social media platforms will use fallback images.
