@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
@@ -18,56 +19,68 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyber-darker via-cyber-dark to-primary-900 opacity-95" />
-      
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <motion.div 
-          className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(0,212,255,0.1),transparent_50%)]"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+      {/* Background Image with overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/cybersecurity website background images.jpg"
+          alt="Cybersecurity Background"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
         />
-        <motion.div 
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyber-blue rounded-full blur-3xl opacity-20"
-          animate={{ 
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 10, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyber-purple rounded-full blur-3xl opacity-20"
-          animate={{ 
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyber-darker/90 via-cyber-dark/85 to-primary-900/90" />
       </div>
+      
+      {/* Animated pattern overlay */}
+      <motion.div 
+        className="absolute inset-0 opacity-20"
+        animate={{ 
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{ 
+          duration: 20, 
+          repeat: Infinity, 
+          repeatType: "reverse" 
+        }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(0,212,255,0.15),transparent_50%)]" />
+      </motion.div>
+
+      {/* Floating particles effect */}
+      <motion.div 
+        className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyber-blue rounded-full blur-3xl opacity-10"
+        animate={{ 
+          x: [0, 50, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 10, 
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyber-purple rounded-full blur-3xl opacity-10"
+        animate={{ 
+          x: [0, -50, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ 
+          duration: 12, 
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
 
       {/* Content overlay */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 text-center">
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -75,7 +88,7 @@ export default function HeroSection({
           {title}
         </motion.h1>
         <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}

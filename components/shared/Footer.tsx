@@ -32,7 +32,7 @@ export default function Footer({
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-cyber-darker text-gray-300 border-t border-cyber-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Three-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -117,8 +117,8 @@ export default function Footer({
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-gray-800 pt-8">
-          <p className="text-center text-sm">
+        <div className="border-t border-cyber-dark pt-8">
+          <p className="text-center text-sm text-gray-400">
             &copy; {currentYear} {companyName}. All rights reserved.
           </p>
         </div>

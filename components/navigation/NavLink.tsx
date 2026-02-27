@@ -7,15 +7,38 @@ interface NavLinkProps {
   href: string
   children: React.ReactNode
   className?: string
+  onClick?: () => void
 }
 
-export default function NavLink({ href, children, className = '' }: NavLinkProps) {
+export default function NavLink({ href, children, className = '', onClick }: NavLinkProps) {
   const pathname = usePathname()
-  const isActive = pathname === href || (href !== '/' && pathname.startsWith(href))
+  
+  // Check if it's an anchor link
+  const isAnchor = href.startsWith('#')
+  
+  // For anchor links, check if we're on the home page
+  const isActive = isAnchor 
+    ? pathname === '/' && typeof window !== 'undefined' && window.location.hash === href
+    : pathname === href || (href !== '/' && pathname.startsWith(href))
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isAnchor) {
+      e.preventDefault()
+      const targetId = href.substring(1)
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Update URL hash without jumping
+        window.history.pushState(null, '', href)
+      }
+    }
+    onClick?.()
+  }
 
   return (
     <Link
       href={href}
+      onClick={handleClick}
       className={`
         px-4 py-2 rounded-md text-sm font-medium transition-colors
         ${isActive 

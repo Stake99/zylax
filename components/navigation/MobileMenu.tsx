@@ -82,16 +82,16 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         {/* Navigation links */}
         <nav className="flex flex-col space-y-1 p-4">
-          <NavLink href="/" className="w-full text-left">
+          <NavLink href="#home" className="w-full text-left" onClick={onClose}>
             Home
           </NavLink>
-          <NavLink href="/services" className="w-full text-left">
+          <NavLink href="#services" className="w-full text-left" onClick={onClose}>
             Services
           </NavLink>
-          <NavLink href="/about" className="w-full text-left">
+          <NavLink href="#about" className="w-full text-left" onClick={onClose}>
             About
           </NavLink>
-          <NavLink href="/contact" className="w-full text-left">
+          <NavLink href="#contact" className="w-full text-left" onClick={onClose}>
             Contact
           </NavLink>
         </nav>

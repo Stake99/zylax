@@ -1,13 +1,24 @@
 'use client'
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function CTASection() {
   return (
     <section className="relative w-full py-20 sm:py-24 overflow-hidden">
-      {/* Contrasting background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue via-primary-500 to-cyber-purple" />
+      {/* Background Image with overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/cybersecurity website background images (2).jpg"
+          alt="Security Background"
+          fill
+          className="object-cover"
+          quality={85}
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/90 via-primary-500/85 to-cyber-purple/90" />
+      </div>
       
       {/* Animated pattern overlay */}
       <motion.div 
@@ -27,7 +38,7 @@ export default function CTASection() {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -36,7 +47,7 @@ export default function CTASection() {
           Ready to Secure Your Business?
         </motion.h2>
         <motion.p 
-          className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+          className="text-lg sm:text-xl text-white/95 mb-8 max-w-2xl mx-auto drop-shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

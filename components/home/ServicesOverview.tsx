@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { getAllServices } from '@/lib/services';
 import ServiceCard from '@/components/services/ServiceCard';
 
@@ -8,8 +9,20 @@ export default function ServicesOverview() {
   const services = getAllServices();
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background Image with overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/cybersecurity website background images (1).jpg"
+          alt="Services Background"
+          fill
+          className="object-cover opacity-5"
+          quality={75}
+        />
+        <div className="absolute inset-0 bg-gray-50/95" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header with animation */}
         <motion.div 
           className="text-center mb-12"

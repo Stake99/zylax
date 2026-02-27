@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import ContactForm from '@/components/contact/ContactForm';
 import { generatePageMetadata } from '@/lib/metadata';
 
@@ -21,24 +22,49 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen">
+      {/* Page Header */}
+      <section className="relative bg-cyber-darker text-white py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/cybersecurity website background images (2).jpg"
+            alt="Contact Background"
+            fill
+            className="object-cover opacity-20"
+            quality={85}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyber-darker/90 to-cyber-dark/90" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <p className="text-cyber-blue text-sm font-semibold tracking-wider uppercase mb-2">
+            GET IN TOUCH
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-2xl">
             Contact Us
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl drop-shadow-lg">
             Have questions about our cybersecurity services? Our team of experts is here to help. 
             Reach out to discuss how we can protect your organization.
           </p>
         </div>
+      </section>
 
-        {/* Two-column layout: Contact Form and Company Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/displays/luis-villasmil-S2qA7JhjI6Y-unsplash.jpg"
+            alt="Contact Form Background"
+            fill
+            className="object-cover"
+            quality={85}
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+          {/* Two-column layout: Contact Form and Company Info */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form Section */}
-          <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+          <div className="bg-cyber-dark/90 backdrop-blur-sm rounded-lg shadow-lg p-6 sm:p-8 border border-cyber-blue/30">
+            <h2 className="text-2xl font-semibold text-white mb-6">
               Send Us a Message
             </h2>
             <ContactForm />
@@ -47,8 +73,8 @@ export default function ContactPage() {
           {/* Company Contact Information Section */}
           <div className="space-y-8">
             {/* Contact Details Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+            <div className="bg-cyber-dark/90 backdrop-blur-sm rounded-lg shadow-lg p-6 sm:p-8 border border-cyber-blue/30">
+              <h2 className="text-2xl font-semibold text-white mb-6">
                 Get in Touch
               </h2>
               
@@ -57,7 +83,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-6 w-6 text-blue-600"
+                      className="h-6 w-6 text-cyber-blue"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -72,10 +98,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium text-gray-900">Email</h3>
+                    <h3 className="text-sm font-medium text-white">Email</h3>
                     <a
                       href={`mailto:${companyInfo.email}`}
-                      className="mt-1 text-base text-blue-600 hover:text-blue-700 transition-colors"
+                      className="mt-1 text-base text-cyber-blue hover:text-primary-400 transition-colors"
                     >
                       {companyInfo.email}
                     </a>
@@ -86,7 +112,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-6 w-6 text-blue-600"
+                      className="h-6 w-6 text-cyber-blue"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -101,10 +127,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium text-gray-900">Phone</h3>
+                    <h3 className="text-sm font-medium text-white">Phone</h3>
                     <a
                       href={`tel:${companyInfo.phone.replace(/\s/g, '')}`}
-                      className="mt-1 text-base text-blue-600 hover:text-blue-700 transition-colors"
+                      className="mt-1 text-base text-cyber-blue hover:text-primary-400 transition-colors"
                     >
                       {companyInfo.phone}
                     </a>
@@ -115,7 +141,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-6 w-6 text-blue-600"
+                      className="h-6 w-6 text-cyber-blue"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -124,12 +150,12 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium text-gray-900">WhatsApp</h3>
+                    <h3 className="text-sm font-medium text-white">WhatsApp</h3>
                     <a
                       href={`https://wa.me/${companyInfo.whatsapp.replace(/\s/g, '').replace('+', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-1 text-base text-blue-600 hover:text-blue-700 transition-colors"
+                      className="mt-1 text-base text-cyber-blue hover:text-primary-400 transition-colors"
                     >
                       {companyInfo.whatsapp}
                     </a>
@@ -140,7 +166,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-6 w-6 text-blue-600"
+                      className="h-6 w-6 text-cyber-blue"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -161,8 +187,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium text-gray-900">Office</h3>
-                    <p className="mt-1 text-base text-gray-600">
+                    <h3 className="text-sm font-medium text-white">Office</h3>
+                    <p className="mt-1 text-base text-gray-300">
                       {companyInfo.address}
                     </p>
                   </div>
@@ -171,30 +197,31 @@ export default function ContactPage() {
             </div>
 
             {/* Business Hours Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+            <div className="bg-cyber-dark/90 backdrop-blur-sm rounded-lg shadow-lg p-6 sm:p-8 border border-cyber-blue/30">
+              <h2 className="text-2xl font-semibold text-white mb-6">
                 Business Hours
               </h2>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
-                  <span className="text-gray-900 font-medium">9:00 AM - 6:00 PM</span>
+                  <span className="text-gray-300">Monday - Friday</span>
+                  <span className="text-white font-medium">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday</span>
-                  <span className="text-gray-900 font-medium">10:00 AM - 4:00 PM</span>
+                  <span className="text-gray-300">Saturday</span>
+                  <span className="text-white font-medium">10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
-                  <span className="text-gray-900 font-medium">Closed</span>
+                  <span className="text-gray-300">Sunday</span>
+                  <span className="text-white font-medium">Closed</span>
                 </div>
               </div>
-              <p className="mt-6 text-sm text-gray-500">
+              <p className="mt-6 text-sm text-gray-400">
                 * Emergency security incidents are handled 24/7. Call our emergency hotline for immediate assistance.
               </p>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
